@@ -37,29 +37,10 @@ function getUnmatchedCustomerCount() {
     });
 }
 
-// Function to retrieve the user IDs of customers handled by "猫咪头"
-function getCatAssistantCustomerIds() {
-    return new Promise((resolve, reject) => {
-        pool.query(
-            `SELECT UserId
-            FROM \`customers\`
-            WHERE CAST(datatime AS DATE) = '${yesterday}'
-            AND Assistant_name = '猫咪头'`,
-            (error, results) => {
-                if (error) {
-                    reject(error);
-                    return;
-                }
-                const userIds = results.map(row => row.UserId);
-                resolve(userIds);
-            }
-        );
-    });
-}
 
 // Example usage
-module.exports = Promise.all([getUnmatchedCustomerCount(), getCatAssistantCustomerIds()])
-    .then(([unmatchedCount, userIds]) => {
+module.exports = Promise.all([getUnmatchedCustomerCount()])
+    .then(([unmatchedCount]) => {
         return unmatchedCount;
     })
     .catch(error => {

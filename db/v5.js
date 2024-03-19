@@ -1,4 +1,4 @@
-//猫咪头无外部部匹配房源的客户
+//猫咪头无外部匹配房源的客户
 
 const pool = require('../database');
 const { getYesterday } = require('./yesterday');
@@ -37,31 +37,13 @@ function getUnmatchedCustomerCount() {
     });
 }
 
-// Function to retrieve the user IDs of customers handled by "猫咪头"
-function getCatAssistantCustomerIds() {
-    return new Promise((resolve, reject) => {
-        pool.query(
-            `SELECT UserId
-            FROM \`customers\`
-            WHERE CAST(datatime AS DATE) = '${yesterday}'
-            AND Assistant_name = '猫咪头'`,
-            (error, results) => {
-                if (error) {
-                    reject(error);
-                    return;
-                }
-                const userIds = results.map(row => row.UserId);
-                resolve(userIds);
-            }
-        );
-    });
-}
 
-module.exports = Promise.all([getUnmatchedCustomerCount(), getCatAssistantCustomerIds()])
-    .then(([unmatchedCount, userIds]) => {
-        const averageUnmatchedCountPerUser = unmatchedCount / userIds.length;
-        return parseFloat(averageUnmatchedCountPerUser.toFixed(4)); // Retain 4 decimal places
+// Example usage
+module.exports = Promise.all([getUnmatchedCustomerCount()])
+    .then(([unmatchedCount]) => {
+        return unmatchedCount;
     })
     .catch(error => {
         console.error('Error:', error);
     });
+

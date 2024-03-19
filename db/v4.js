@@ -37,28 +37,9 @@ function getUnmatchedCustomerCount() {
     });
 }
 
-// Function to retrieve the user IDs of customers handled by "加拿大鹅妈妈"
-function getCatAssistantCustomerIds() {
-    return new Promise((resolve, reject) => {
-        pool.query(
-            `SELECT UserId
-            FROM \`customers\`
-            WHERE CAST(datatime AS DATE) = '${yesterday}'
-            AND Assistant_name = '加拿大鹅妈妈'`,
-            (error, results) => {
-                if (error) {
-                    reject(error);
-                    return;
-                }
-                const userIds = results.map(row => row.UserId);
-                resolve(userIds);
-            }
-        );
-    });
-}
 
 // Example usage
-module.exports = Promise.all([getUnmatchedCustomerCount(), getCatAssistantCustomerIds()])
+module.exports = Promise.all([getUnmatchedCustomerCount()])
     .then(([unmatchedCount, userIds]) => {
         return unmatchedCount;
     })
