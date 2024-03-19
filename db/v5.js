@@ -1,4 +1,4 @@
-//猫咪头无内部匹配房源的客户
+//猫咪头无外部部匹配房源的客户
 
 const pool = require('../database');
 const { getYesterday } = require('./yesterday');
@@ -16,13 +16,13 @@ function getUnmatchedCustomerCount() {
             AND UserId NOT IN (
                 SELECT DISTINCT UserId
                 FROM (
-                    SELECT UserId FROM \`old_internal_richmond_match\`
+                    SELECT UserId FROM \`old_richmond_match\`
                     UNION
-                    SELECT UserId FROM \`old_internal_vancouver_match\`
+                    SELECT UserId FROM \`old_vancouver_match\`
                     UNION
-                    SELECT UserId FROM \`old_internal_coquitlam_match\`
+                    SELECT UserId FROM \`old_coquitlam_match\`
                     UNION
-                    SELECT UserId FROM \`old_internal_burnaby_match\`
+                    SELECT UserId FROM \`old_burnaby_match\`
                 ) AS internal_matches
             )`;
 
@@ -57,12 +57,11 @@ function getCatAssistantCustomerIds() {
     });
 }
 
-// Example usage
 module.exports = Promise.all([getUnmatchedCustomerCount(), getCatAssistantCustomerIds()])
     .then(([unmatchedCount, userIds]) => {
-        return unmatchedCount;
+        const averageUnmatchedCountPerUser = unmatchedCount / userIds.length;
+        return parseFloat(averageUnmatchedCountPerUser.toFixed(4)); // Retain 4 decimal places
     })
     .catch(error => {
         console.error('Error:', error);
     });
-

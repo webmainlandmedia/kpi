@@ -1,4 +1,4 @@
-//猫咪头无内部匹配房源的客户
+//大黄内部覆盖率
 
 const pool = require('../database');
 const { getYesterday } = require('./yesterday');
@@ -12,7 +12,7 @@ function getUnmatchedCustomerCount() {
             SELECT COUNT(*) AS unmatched_count
             FROM \`customers\`
             WHERE CAST(datatime AS DATE) = '${yesterday}'
-            AND Assistant_name = '猫咪头'
+            AND Assistant_name = '黄金猎犬，大黄'
             AND UserId NOT IN (
                 SELECT DISTINCT UserId
                 FROM (
@@ -37,14 +37,14 @@ function getUnmatchedCustomerCount() {
     });
 }
 
-// Function to retrieve the user IDs of customers handled by "猫咪头"
+// Function to retrieve the user IDs of customers handled by "黄金猎犬，大黄"
 function getCatAssistantCustomerIds() {
     return new Promise((resolve, reject) => {
         pool.query(
             `SELECT UserId
             FROM \`customers\`
             WHERE CAST(datatime AS DATE) = '${yesterday}'
-            AND Assistant_name = '猫咪头'`,
+            AND Assistant_name = '黄金猎犬，大黄'`,
             (error, results) => {
                 if (error) {
                     reject(error);
@@ -57,12 +57,11 @@ function getCatAssistantCustomerIds() {
     });
 }
 
-// Example usage
 module.exports = Promise.all([getUnmatchedCustomerCount(), getCatAssistantCustomerIds()])
     .then(([unmatchedCount, userIds]) => {
-        return unmatchedCount;
+        const averageUnmatchedCountPerUser = unmatchedCount / userIds.length;
+        return parseFloat(averageUnmatchedCountPerUser.toFixed(4)); // Retain 4 decimal places
     })
     .catch(error => {
         console.error('Error:', error);
     });
-

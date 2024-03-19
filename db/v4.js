@@ -57,11 +57,12 @@ function getCatAssistantCustomerIds() {
     });
 }
 
+// Example usage
 module.exports = Promise.all([getUnmatchedCustomerCount(), getCatAssistantCustomerIds()])
     .then(([unmatchedCount, userIds]) => {
-        const averageUnmatchedCountPerUser = unmatchedCount / userIds.length;
-        return parseFloat(averageUnmatchedCountPerUser.toFixed(4)); // Retain 4 decimal places
+        return unmatchedCount;
     })
     .catch(error => {
         console.error('Error:', error);
     });
+

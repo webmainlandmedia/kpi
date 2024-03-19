@@ -1,4 +1,4 @@
-//猫咪头无内部匹配房源的客户
+//猫咪头内部覆盖率
 
 const pool = require('../database');
 const { getYesterday } = require('./yesterday');
@@ -57,12 +57,11 @@ function getCatAssistantCustomerIds() {
     });
 }
 
-// Example usage
 module.exports = Promise.all([getUnmatchedCustomerCount(), getCatAssistantCustomerIds()])
     .then(([unmatchedCount, userIds]) => {
-        return unmatchedCount;
+        const averageUnmatchedCountPerUser = unmatchedCount / userIds.length;
+        return parseFloat(averageUnmatchedCountPerUser.toFixed(4)); // Retain 4 decimal places
     })
     .catch(error => {
         console.error('Error:', error);
     });
-
