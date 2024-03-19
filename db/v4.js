@@ -1,4 +1,4 @@
-//猫咪头无内部匹配房源的客户
+//加拿大鹅妈妈无内部匹配房源的客户
 
 const pool = require('../database');
 const { getYesterday } = require('./yesterday');
@@ -12,7 +12,7 @@ function getUnmatchedCustomerCount() {
             SELECT COUNT(*) AS unmatched_count
             FROM \`customers\`
             WHERE CAST(datatime AS DATE) = '${yesterday}'
-            AND Assistant_name = '猫咪头'
+            AND Assistant_name = '加拿大鹅妈妈'
             AND UserId NOT IN (
                 SELECT DISTINCT UserId
                 FROM (
@@ -37,14 +37,14 @@ function getUnmatchedCustomerCount() {
     });
 }
 
-// Function to retrieve the user IDs of customers handled by "猫咪头"
+// Function to retrieve the user IDs of customers handled by "加拿大鹅妈妈"
 function getCatAssistantCustomerIds() {
     return new Promise((resolve, reject) => {
         pool.query(
             `SELECT UserId
             FROM \`customers\`
             WHERE CAST(datatime AS DATE) = '${yesterday}'
-            AND Assistant_name = '猫咪头'`,
+            AND Assistant_name = '加拿大鹅妈妈'`,
             (error, results) => {
                 if (error) {
                     reject(error);
