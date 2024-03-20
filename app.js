@@ -11,6 +11,9 @@ const v13  = require('./db/v13');
 const v17  = require('./db/v17');
 const v18  = require('./db/v18');
 const v19  = require('./db/v19');
+const v20  = require('./db/v20');
+const v21  = require('./db/v21');
+const v22  = require('./db/v22');
 const { getYesterday } = require('./db/yesterday');
 
 let col1 = getYesterday();
@@ -27,6 +30,12 @@ let col13;
 let col17;
 let col18;
 let col19;
+let col20;
+let col21;
+let col22;
+let col23;
+let col24;
+let col25;
 
 //猫咪头无内部匹配房源的客户
 v2.then(unmatchedCount => {
@@ -159,6 +168,68 @@ v19.then(averageUnmatchedCount => {
   console.error('Error:', error);
 });
 
+
+
+//猫咪头看房率
+v20.then(averageUnmatchedCount => {
+  col20 = averageUnmatchedCount;
+  console.log('col20',col20);
+}).catch(error => {
+  console.error('Error:', error);
+});
+
+
+
+//大黄看房率
+v21.then(averageUnmatchedCount => {
+  col21 = averageUnmatchedCount;
+  console.log('col21',col21);
+}).catch(error => {
+  console.error('Error:', error);
+});
+
+
+
+//鹅看房率
+v22.then(averageUnmatchedCount => {
+  col22 = averageUnmatchedCount;
+  console.log('col22',col22);
+}).catch(error => {
+  console.error('Error:', error);
+});
+
+
+
+//猫咪头未看房率
+v20.then(averageUnmatchedCount => {
+  col20 = averageUnmatchedCount;
+  col23 = 1 - col20;
+  console.log('col23',col23);
+}).catch(error => {
+  console.error('Error:', error);
+});
+
+
+
+//大黄未看房率
+v21.then(averageUnmatchedCount => {
+  col21 = averageUnmatchedCount;
+  col24 = 1 - col21;
+  console.log('col24',col24);
+}).catch(error => {
+  console.error('Error:', error);
+});
+
+
+
+//鹅未看房率
+v22.then(averageUnmatchedCount => {
+  col22 = averageUnmatchedCount;
+  col25 = 1 - col22;
+  console.log('col25',col25);
+}).catch(error => {
+  console.error('Error:', error);
+});
 
 
 
