@@ -14,6 +14,8 @@ const v19  = require('./db/v19');
 const v20  = require('./db/v20');
 const v21  = require('./db/v21');
 const v22  = require('./db/v22');
+const v32  = require('./db/v32');
+const v33  = require('./db/v33');
 const { getYesterday } = require('./db/yesterday');
 
 let col1 = getYesterday();
@@ -36,8 +38,10 @@ let col22;
 let col23;
 let col24;
 let col25;
+let col32;
+let col33;
 
-//猫咪头无内部匹配房源的客户
+//2.猫咪头无内部匹配房源的客户
 v2.then(unmatchedCount => {
     col2 = unmatchedCount;
     console.log('col2',col2);
@@ -48,7 +52,7 @@ v2.then(unmatchedCount => {
 
 
     
-//大黄无内部匹配房源的客户
+//3.大黄无内部匹配房源的客户
 v3.then(unmatchedCount => {
   col3 = unmatchedCount;
   console.log('col3',col3);
@@ -59,7 +63,7 @@ v3.then(unmatchedCount => {
 
 
   
-//鹅无内部匹配房源的客户
+//4.鹅无内部匹配房源的客户
 v4.then(unmatchedCount => {
   col4 = unmatchedCount;
   console.log('col4',col4);
@@ -70,7 +74,7 @@ v4.then(unmatchedCount => {
 
 
 
-//猫咪头无外部匹配房源的客户
+//5.猫咪头无外部匹配房源的客户
 // v5.then(unmatchedCount => {
 //   col5 = unmatchedCount;
 //   console.log('col5',col5);
@@ -81,7 +85,7 @@ v4.then(unmatchedCount => {
 
 
 
-//猫咪头新增注册用户数
+//8.猫咪头新增注册用户数
 v8.then(registerCount => {
   col8 = registerCount;
   console.log('col8',col8);
@@ -92,7 +96,7 @@ v8.then(registerCount => {
 
 
 
-//大黄新增注册用户数
+//9.大黄新增注册用户数
 v9.then(registerCount => {
   col9 = registerCount; 
   console.log('col9',col9);
@@ -103,8 +107,8 @@ v9.then(registerCount => {
 
 
 
-//鹅新增注册用户数
-v9.then(registerCount => {
+//10.鹅新增注册用户数
+v10.then(registerCount => {
   col10 = registerCount; 
   console.log('col10',col10);
 })
@@ -114,7 +118,7 @@ v9.then(registerCount => {
 
 
 
-//猫咪头无内部匹配房源的客户
+//11.猫咪头无内部匹配房源的客户
 v11.then(averageUnmatchedCount => {
   col11 = averageUnmatchedCount;
   console.log('col11',col11);
@@ -122,7 +126,7 @@ v11.then(averageUnmatchedCount => {
   console.error('Error:', error);
 });
 
-//大黄无内部匹配房源的客户
+//12.大黄无内部匹配房源的客户
 v12.then(averageUnmatchedCount => {
   col12 = averageUnmatchedCount;
   console.log('col12',col12);
@@ -130,7 +134,7 @@ v12.then(averageUnmatchedCount => {
   console.error('Error:', error);
 });
 
-//加拿大鹅妈妈无内部匹配房源的客户
+//13.加拿大鹅妈妈无内部匹配房源的客户
 v13.then(averageUnmatchedCount => {
   col13 = averageUnmatchedCount;
   console.log('col13',col13);
@@ -140,7 +144,7 @@ v13.then(averageUnmatchedCount => {
 
 
 
-//猫咪头当日看房数
+//17.猫咪头当日看房数
 v17.then(averageUnmatchedCount => {
   col17 = averageUnmatchedCount;
   console.log('col17',col17);
@@ -150,7 +154,7 @@ v17.then(averageUnmatchedCount => {
 
 
 
-//大黄当日看房数
+//18.大黄当日看房数
 v18.then(averageUnmatchedCount => {
   col18 = averageUnmatchedCount;
   console.log('col18',col18);
@@ -160,7 +164,7 @@ v18.then(averageUnmatchedCount => {
 
 
 
-//鹅当日看房数
+//19.鹅当日看房数
 v19.then(averageUnmatchedCount => {
   col19 = averageUnmatchedCount;
   console.log('col19',col19);
@@ -170,7 +174,7 @@ v19.then(averageUnmatchedCount => {
 
 
 
-//猫咪头看房率
+//20.猫咪头看房率
 v20.then(averageUnmatchedCount => {
   col20 = averageUnmatchedCount;
   console.log('col20',col20);
@@ -180,7 +184,7 @@ v20.then(averageUnmatchedCount => {
 
 
 
-//大黄看房率
+//21.大黄看房率
 v21.then(averageUnmatchedCount => {
   col21 = averageUnmatchedCount;
   console.log('col21',col21);
@@ -190,7 +194,7 @@ v21.then(averageUnmatchedCount => {
 
 
 
-//鹅看房率
+//22.鹅看房率
 v22.then(averageUnmatchedCount => {
   col22 = averageUnmatchedCount;
   console.log('col22',col22);
@@ -200,7 +204,7 @@ v22.then(averageUnmatchedCount => {
 
 
 
-//猫咪头未看房率
+//23.猫咪头未看房率
 v20.then(averageUnmatchedCount => {
   col20 = averageUnmatchedCount;
   col23 = 1 - col20;
@@ -211,7 +215,7 @@ v20.then(averageUnmatchedCount => {
 
 
 
-//大黄未看房率
+//24.大黄未看房率
 v21.then(averageUnmatchedCount => {
   col21 = averageUnmatchedCount;
   col24 = 1 - col21;
@@ -222,7 +226,7 @@ v21.then(averageUnmatchedCount => {
 
 
 
-//鹅未看房率
+//25.鹅未看房率
 v22.then(averageUnmatchedCount => {
   col22 = averageUnmatchedCount;
   col25 = 1 - col22;
@@ -230,6 +234,28 @@ v22.then(averageUnmatchedCount => {
 }).catch(error => {
   console.error('Error:', error);
 });
+
+
+
+//32.未匹配小助手用户数
+v32.then(unassist => {
+  col32 = unassist;
+  console.log('col32',col32);
+}).catch(error => {
+  console.error('Error:', error);
+});
+
+
+
+//33.当天内部新增房源数
+v33.then(newHouse => {
+  col33 = newHouse;
+  console.log('col33',col33);
+}).catch(error => {
+  console.error('Error:', error);
+});
+
+
 
 
 

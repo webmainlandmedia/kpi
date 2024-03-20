@@ -40,7 +40,7 @@ function getUnmatchedCustomerCount() {
 
 // Example usage
 module.exports = Promise.all([getUnmatchedCustomerCount()])
-    .then(([unmatchedCount, userIds]) => {
+    .then(([unmatchedCount]) => {
         return unmatchedCount;
     })
     .catch(error => {
