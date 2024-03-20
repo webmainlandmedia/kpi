@@ -14,6 +14,12 @@ const v19  = require('./db/v19');
 const v20  = require('./db/v20');
 const v21  = require('./db/v21');
 const v22  = require('./db/v22');
+const v26  = require('./db/v26');
+const v27  = require('./db/v27');
+const v28  = require('./db/v28');
+const v29  = require('./db/v29');
+const v30  = require('./db/v30');
+const v31  = require('./db/v31');
 const v32  = require('./db/v32');
 const v33  = require('./db/v33');
 const { getYesterday } = require('./db/yesterday');
@@ -38,6 +44,12 @@ let col22;
 let col23;
 let col24;
 let col25;
+let col26;
+let col27;
+let col28;
+let col29;
+let col30;
+let col31;
 let col32;
 let col33;
 
@@ -226,6 +238,7 @@ v21.then(averageUnmatchedCount => {
 
 
 
+
 //25.鹅未看房率
 v22.then(averageUnmatchedCount => {
   col22 = averageUnmatchedCount;
@@ -234,6 +247,67 @@ v22.then(averageUnmatchedCount => {
 }).catch(error => {
   console.error('Error:', error);
 });
+
+
+
+//26.猫咪头外部匹配房源处理率
+v26.then(processedRate => {
+  col26 = processedRate;
+  console.log('col26',col26);
+}).catch(error => {
+  console.error('Error:', error);
+});
+
+
+
+//27.大黄外部匹配房源处理率
+v27.then(processedRate => {
+  col27 = processedRate;
+  console.log('col27',col27);
+}).catch(error => {
+  console.error('Error:', error);
+});
+
+
+
+//28.鹅外部匹配房源处理率
+v28.then(processedRate => {
+  col28 = processedRate;
+  console.log('col28',col28);
+}).catch(error => {
+  console.error('Error:', error);
+});
+
+
+
+//29.猫咪头内部匹配房源处理率
+v29.then(processedRate => {
+  col29 = processedRate;
+  console.log('col29',col29);
+}).catch(error => {
+  console.error('Error:', error);
+});
+
+
+
+//30.大黄内部匹配房源处理率
+v30.then(processedRate => {
+  col30 = processedRate;
+  console.log('col30',col30);
+}).catch(error => {
+  console.error('Error:', error);
+});
+
+
+
+//31.鹅内部匹配房源处理率
+v31.then(processedRate => {
+  col31 = processedRate;
+  console.log('col31',col31);
+}).catch(error => {
+  console.error('Error:', error);
+});
+
 
 
 
