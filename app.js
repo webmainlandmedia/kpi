@@ -31,378 +31,409 @@ const v31  = require('./db/v31');
 const v32  = require('./db/v32');
 const v33  = require('./db/v33');
 
+let results = [];
 
-let col1 = getYesterday();
-let col2;
-let col3;
-let col4;
-let col5;
-let col6;
-let col7;
-let col8;
-let col9;
-let col10;
-let col11;
-let col12;
-let col13;
-let col14;
-let col15;
-let col16;
-let col17;
-let col18;
-let col19;
-let col20;
-let col21;
-let col22;
-let col23;
-let col24;
-let col25;
-let col26;
-let col27;
-let col28;
-let col29;
-let col30;
-let col31;
-let col32;
-let col33;
+
+//1. 日期
+results.push(getYesterday());
+
+
 
 //2.猫咪头无内部匹配房源的客户
-v2.then(unmatchedCount => {
-    col2 = unmatchedCount;
-    console.log('col2',col2);
+results.push(
+  v2.then(unmatchedCount => {
+      return unmatchedCount;
     })
     .catch(error => {
         console.error('Error:', error);
-    });
+  })
+);
 
 
     
 //3.大黄无内部匹配房源的客户
-v3.then(unmatchedCount => {
-  col3 = unmatchedCount;
-  console.log('col3',col3);
-  })
-  .catch(error => {
-      console.error('Error:', error);
-  });
+results.push(
+  v3.then(unmatchedCount => {
+    return unmatchedCount;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    })
+);
 
 
   
 //4.鹅无内部匹配房源的客户
-v4.then(unmatchedCount => {
-  col4 = unmatchedCount;
-  console.log('col4',col4);
-  })
-  .catch(error => {
-      console.error('Error:', error);
-  });
+results.push(
+  v4.then(unmatchedCount => {
+    return unmatchedCount;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    })
+);
 
 
 
 //5.猫咪头无外部匹配房源的客户
-v5.then(unmatchedCount => {
-  col5 = unmatchedCount;
-  console.log('col5',col5);
-  })
-  .catch(error => {
-      console.error('Error:', error);
-  });
+results.push(
+  v5.then(unmatchedCount => {
+    return unmatchedCount;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    })
+);
 
 
 
   
 //6.大黄无外部匹配房源的客户
-v6.then(unmatchedCount => {
-  col6 = unmatchedCount;
-  console.log('col6',col6);
-  })
-  .catch(error => {
-      console.error('Error:', error);
-  });
+results.push(
+  v6.then(unmatchedCount => {
+    return unmatchedCount;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    })
+);
 
 
 
   
 //7.鹅无外部匹配房源的客户
-v7.then(unmatchedCount => {
-  col7 = unmatchedCount;
-  console.log('col7',col7);
-  })
-  .catch(error => {
-      console.error('Error:', error);
-  });
+results.push(
+  v7.then(unmatchedCount => {
+    return unmatchedCount;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    })
+);
 
 
 
 //8.猫咪头新增注册用户数
-v8.then(registerCount => {
-  col8 = registerCount;
-  console.log('col8',col8);
-  })
-  .catch(error => {
-      console.error('Error:', error);
-  });
+results.push(
+  v8.then(registerCount => {
+    return registerCount;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    })
+);
 
 
 
 //9.大黄新增注册用户数
-v9.then(registerCount => {
-  col9 = registerCount; 
-  console.log('col9',col9);
-})
-.catch(error => {
-    console.error('Error:', error);
-});
+results.push(
+  v9.then(registerCount => {
+    return registerCount; 
+  })
+  .catch(error => {
+      console.error('Error:', error);
+  })
+);
 
 
 
 //10.鹅新增注册用户数
-v10.then(registerCount => {
-  col10 = registerCount; 
-  console.log('col10',col10);
-})
-.catch(error => {
-    console.error('Error:', error);
-});
+results.push(
+  v10.then(registerCount => {
+    return registerCount; 
+  })
+  .catch(error => {
+      console.error('Error:', error);
+  })
+);
 
 
 
 //11.猫咪头无内部匹配房源的客户
-v11.then(averageUnmatchedCount => {
-  col11 = averageUnmatchedCount;
-  console.log('col11',col11);
-}).catch(error => {
-  console.error('Error:', error);
-});
+results.push(
+  v11.then(averageUnmatchedCount => {
+    return averageUnmatchedCount;
+  }).catch(error => {
+    console.error('Error:', error);
+  })
+);
 
 
 
 //12.大黄无内部匹配房源的客户
-v12.then(averageUnmatchedCount => {
-  col12 = averageUnmatchedCount;
-  console.log('col12',col12);
-}).catch(error => {
-  console.error('Error:', error);
-});
+results.push(
+  v12.then(averageUnmatchedCount => {
+    return averageUnmatchedCount;
+  }).catch(error => {
+    console.error('Error:', error);
+  })
+);
 
 
 
 //13.加拿大鹅妈妈无内部匹配房源的客户
-v13.then(averageUnmatchedCount => {
-  col13 = averageUnmatchedCount;
-  console.log('col13',col13);
-}).catch(error => {
-  console.error('Error:', error);
-});
+results.push(
+  v13.then(averageUnmatchedCount => {
+    return averageUnmatchedCount;
+  }).catch(error => {
+    console.error('Error:', error);
+  })
+);
 
 
 
 //14.猫咪头无外部匹配房源的客户
-v14.then(averageUnmatchedCount => {
-  col14 = averageUnmatchedCount;
-  console.log('col14',col14);
-}).catch(error => {
-  console.error('Error:', error);
-});
+results.push(
+  v14.then(averageUnmatchedCount => {
+    return averageUnmatchedCount;
+  }).catch(error => {
+    console.error('Error:', error);
+  })
+);
 
 
 
 //15.大黄无外部匹配房源的客户
-v15.then(averageUnmatchedCount => {
-  col15 = averageUnmatchedCount;
-  console.log('col15',col15);
-}).catch(error => {
-  console.error('Error:', error);
-});
+results.push(
+  v15.then(averageUnmatchedCount => {
+    return averageUnmatchedCount;
+  }).catch(error => {
+    console.error('Error:', error);
+  })
+);
 
 
 
 //16.加拿大鹅妈妈无外部匹配房源的客户
-v16.then(averageUnmatchedCount => {
-  col16 = averageUnmatchedCount;
-  console.log('col16',col16);
-}).catch(error => {
-  console.error('Error:', error);
-});
+results.push(
+  v16.then(averageUnmatchedCount => {
+    return averageUnmatchedCount;
+  }).catch(error => {
+    console.error('Error:', error);
+  })
+);
 
 
 
 
 
 //17.猫咪头当日看房数
-v17.then(averageUnmatchedCount => {
-  col17 = averageUnmatchedCount;
-  console.log('col17',col17);
-}).catch(error => {
-  console.error('Error:', error);
-});
+results.push(
+  v17.then(averageUnmatchedCount => {
+    return averageUnmatchedCount;
+  }).catch(error => {
+    console.error('Error:', error);
+  })
+);
 
 
 
 //18.大黄当日看房数
-v18.then(averageUnmatchedCount => {
-  col18 = averageUnmatchedCount;
-  console.log('col18',col18);
-}).catch(error => {
-  console.error('Error:', error);
-});
-
+results.push(
+  v18.then(averageUnmatchedCount => {
+    return averageUnmatchedCount;
+  }).catch(error => {
+    console.error('Error:', error);
+  })
+);
 
 
 //19.鹅当日看房数
-v19.then(averageUnmatchedCount => {
-  col19 = averageUnmatchedCount;
-  console.log('col19',col19);
-}).catch(error => {
-  console.error('Error:', error);
-});
+results.push(
+  v19.then(averageUnmatchedCount => {
+    return averageUnmatchedCount;
+  }).catch(error => {
+    console.error('Error:', error);
+  })
+);
 
 
 
 //20.猫咪头看房率
-v20.then(averageUnmatchedCount => {
-  col20 = averageUnmatchedCount;
-  console.log('col20',col20);
-}).catch(error => {
-  console.error('Error:', error);
-});
+results.push(
+  v20.then(averageUnmatchedCount => {
+    return averageUnmatchedCount;
+  }).catch(error => {
+    console.error('Error:', error);
+  })
+);
 
 
 
 //21.大黄看房率
-v21.then(averageUnmatchedCount => {
-  col21 = averageUnmatchedCount;
-  console.log('col21',col21);
-}).catch(error => {
-  console.error('Error:', error);
-});
-
+results.push(
+  v21.then(averageUnmatchedCount => {
+    return averageUnmatchedCount;
+  }).catch(error => {
+    console.error('Error:', error);
+  })
+);
 
 
 //22.鹅看房率
-v22.then(averageUnmatchedCount => {
-  col22 = averageUnmatchedCount;
-  console.log('col22',col22);
-}).catch(error => {
-  console.error('Error:', error);
-});
+results.push(
+  v22.then(averageUnmatchedCount => {
+    return averageUnmatchedCount;
+  }).catch(error => {
+    console.error('Error:', error);
+  })
+);
 
 
 
 //23.猫咪头未看房率
-v20.then(averageUnmatchedCount => {
-  col20 = averageUnmatchedCount;
-  col23 = 1 - col20;
-  console.log('col23',col23);
-}).catch(error => {
-  console.error('Error:', error);
-});
+results.push(
+  v20.then(averageUnmatchedCount => {
+    return 1 - averageUnmatchedCount;
+  }).catch(error => {
+    console.error('Error:', error);
+  })
+);
 
 
 
 //24.大黄未看房率
-v21.then(averageUnmatchedCount => {
-  col21 = averageUnmatchedCount;
-  col24 = 1 - col21;
-  console.log('col24',col24);
-}).catch(error => {
-  console.error('Error:', error);
-});
+results.push(
+  v21.then(averageUnmatchedCount => {
+    return 1 - averageUnmatchedCount;
+  }).catch(error => {
+    console.error('Error:', error);
+  })
+);
 
 
 
 
 //25.鹅未看房率
-v22.then(averageUnmatchedCount => {
-  col22 = averageUnmatchedCount;
-  col25 = 1 - col22;
-  console.log('col25',col25);
-}).catch(error => {
-  console.error('Error:', error);
-});
+results.push(
+  v22.then(averageUnmatchedCount => {
+    return 1 - averageUnmatchedCount;
+  }).catch(error => {
+    console.error('Error:', error);
+  })
+);
 
 
 
 //26.猫咪头外部匹配房源处理率
-v26.then(processedRate => {
-  col26 = processedRate;
-  console.log('col26',col26);
-}).catch(error => {
-  console.error('Error:', error);
-});
+results.push(
+  v26.then(processedRate => {
+    return processedRate;
+  }).catch(error => {
+    console.error('Error:', error);
+  })
+);
 
 
 
 //27.大黄外部匹配房源处理率
-v27.then(processedRate => {
-  col27 = processedRate;
-  console.log('col27',col27);
-}).catch(error => {
-  console.error('Error:', error);
-});
+results.push(
+  v27.then(processedRate => {
+    return processedRate;
+  }).catch(error => {
+    console.error('Error:', error);
+  })
+);
 
 
 
 //28.鹅外部匹配房源处理率
-v28.then(processedRate => {
-  col28 = processedRate;
-  console.log('col28',col28);
-}).catch(error => {
-  console.error('Error:', error);
-});
+results.push(
+  v28.then(processedRate => {
+    return processedRate;
+  }).catch(error => {
+    console.error('Error:', error);
+  })
+);
 
 
 
 //29.猫咪头内部匹配房源处理率
-v29.then(processedRate => {
-  col29 = processedRate;
-  console.log('col29',col29);
-}).catch(error => {
-  console.error('Error:', error);
-});
+results.push(
+  v29.then(processedRate => {
+    return processedRate;
+  }).catch(error => {
+    console.error('Error:', error);
+  })
+);
 
 
 
 //30.大黄内部匹配房源处理率
-v30.then(processedRate => {
-  col30 = processedRate;
-  console.log('col30',col30);
-}).catch(error => {
-  console.error('Error:', error);
-});
+results.push(
+  v30.then(processedRate => {
+    return processedRate;
+  }).catch(error => {
+    console.error('Error:', error);
+  })
+);
 
 
 
 //31.鹅内部匹配房源处理率
-v31.then(processedRate => {
-  col31 = processedRate;
-  console.log('col31',col31);
-}).catch(error => {
-  console.error('Error:', error);
-});
+results.push(
+  v31.then(processedRate => {
+    return processedRate;
+  }).catch(error => {
+    console.error('Error:', error);
+  })
+);
 
 
 
 
 //32.未匹配小助手用户数
-v32.then(unassist => {
-  col32 = unassist;
-  console.log('col32',col32);
-}).catch(error => {
-  console.error('Error:', error);
-});
+results.push(
+  v32.then(unassist => {
+    return unassist;
+  }).catch(error => {
+    console.error('Error:', error);
+  })
+);
 
 
 
 //33.当天内部新增房源数
-v33.then(newHouse => {
-  col33 = newHouse;
-  console.log('col33',col33);
-}).catch(error => {
-  console.error('Error:', error);
-});
+results.push(
+  v33.then(newHouse => {
+    return newHouse;
+  }).catch(error => {
+    console.error('Error:', error);
+  })
+);
 
 
 
 
 
+// 使用 Promise.all 等待所有结果解析
+Promise.all(results)
+    .then(values => {
+        // 将查询结果存储在变量中
+        let [col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12, col13, col14, col15, col16, col17, col18, col19, col20, col21, col22, col23, col24, col25, col26, col27, col28, col29, col30, col31, col32, col33] = values;
+
+        // 构建 SQL 查询语句
+        let queryString = `
+            INSERT INTO kpi (日期, 猫咪头无内部匹配房源的客户, 大黄无内部匹配房源的客户数, 鹅无内部匹配房源的客户数, 猫咪头无外部匹配房源的客户, 大黄无外部匹配房源的客户数, 鹅无外部匹配房源的客户数, 猫咪头新增注册用户数, 大黄新增注册用户数, 鹅新增注册用户数, 猫咪头内部覆盖率, 大黄内部覆盖率, 鹅内部覆盖率, 猫咪头外部覆盖率, 大黄外部覆盖率, 鹅外部覆盖率, 猫咪头当日看房数, 大黄当日看房数, 鹅当日看房数, 猫咪头看房率, 大黄看房率, 鹅看房率, 猫咪头未看房率, 大黄未看房率, 鹅未看房率, 猫咪头外部匹配房源处理率, 大黄外部匹配房源处理率, 鹅外部匹配房源处理率, 猫咪头内部匹配房源处理率, 大黄内部匹配房源处理率, 鹅内部匹配房源处理率, 未匹配小助手用户数, 当天内部新增房源数) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+
+        // 提供查询结果的值数组
+        let valuesForQuery = [
+            col1, col2, col3, col4, col5, col6, col7, col8, col9, col10,
+            col11, col12, col13, col14, col15, col16, col17, col18, col19, col20,
+            col21, col22, col23, col24, col25, col26, col27, col28, col29, col30,
+            col31, col32, col33
+        ];
+
+        // 执行查询
+        pool.query(queryString, valuesForQuery, (error, results, fields) => {
+            if (error) {
+                console.error('Error inserting into kpi table:', error);
+            } else {
+                console.log('Data inserted into kpi table successfully.');
+            }
+        });
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
