@@ -1,3 +1,6 @@
+const pool = require('./database');
+
+const { getYesterday } = require('./db/yesterday');
 const v2  = require('./db/v2');
 const v3  = require('./db/v3');
 const v4  = require('./db/v4');
@@ -27,7 +30,7 @@ const v30  = require('./db/v30');
 const v31  = require('./db/v31');
 const v32  = require('./db/v32');
 const v33  = require('./db/v33');
-const { getYesterday } = require('./db/yesterday');
+
 
 let col1 = getYesterday();
 let col2;
