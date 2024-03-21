@@ -1,13 +1,18 @@
 const v2  = require('./db/v2');
 const v3  = require('./db/v3');
 const v4  = require('./db/v4');
-// const v5  = require('./db/v5');
+const v5  = require('./db/v5');
+const v6  = require('./db/v6');
+const v7  = require('./db/v7');
 const v8 = require('./db/v8');
 const v9 = require('./db/v9');
 const v10 = require('./db/v10');
 const v11  = require('./db/v11');
 const v12  = require('./db/v12');
 const v13  = require('./db/v13');
+const v14  = require('./db/v14');
+const v15  = require('./db/v15');
+const v16  = require('./db/v16');
 const v17  = require('./db/v17');
 const v18  = require('./db/v18');
 const v19  = require('./db/v19');
@@ -29,12 +34,17 @@ let col2;
 let col3;
 let col4;
 let col5;
+let col6;
+let col7;
 let col8;
 let col9;
 let col10;
 let col11;
 let col12;
 let col13;
+let col14;
+let col15;
+let col16;
 let col17;
 let col18;
 let col19;
@@ -87,13 +97,37 @@ v4.then(unmatchedCount => {
 
 
 //5.猫咪头无外部匹配房源的客户
-// v5.then(unmatchedCount => {
-//   col5 = unmatchedCount;
-//   console.log('col5',col5);
-//   })
-//   .catch(error => {
-//       console.error('Error:', error);
-//   });
+v5.then(unmatchedCount => {
+  col5 = unmatchedCount;
+  console.log('col5',col5);
+  })
+  .catch(error => {
+      console.error('Error:', error);
+  });
+
+
+
+  
+//6.大黄无外部匹配房源的客户
+v6.then(unmatchedCount => {
+  col6 = unmatchedCount;
+  console.log('col6',col6);
+  })
+  .catch(error => {
+      console.error('Error:', error);
+  });
+
+
+
+  
+//7.鹅无外部匹配房源的客户
+v7.then(unmatchedCount => {
+  col7 = unmatchedCount;
+  console.log('col7',col7);
+  })
+  .catch(error => {
+      console.error('Error:', error);
+  });
 
 
 
@@ -138,6 +172,8 @@ v11.then(averageUnmatchedCount => {
   console.error('Error:', error);
 });
 
+
+
 //12.大黄无内部匹配房源的客户
 v12.then(averageUnmatchedCount => {
   col12 = averageUnmatchedCount;
@@ -146,6 +182,8 @@ v12.then(averageUnmatchedCount => {
   console.error('Error:', error);
 });
 
+
+
 //13.加拿大鹅妈妈无内部匹配房源的客户
 v13.then(averageUnmatchedCount => {
   col13 = averageUnmatchedCount;
@@ -153,6 +191,38 @@ v13.then(averageUnmatchedCount => {
 }).catch(error => {
   console.error('Error:', error);
 });
+
+
+
+//14.猫咪头无外部匹配房源的客户
+v14.then(averageUnmatchedCount => {
+  col14 = averageUnmatchedCount;
+  console.log('col14',col14);
+}).catch(error => {
+  console.error('Error:', error);
+});
+
+
+
+//15.大黄无外部匹配房源的客户
+v15.then(averageUnmatchedCount => {
+  col15 = averageUnmatchedCount;
+  console.log('col15',col15);
+}).catch(error => {
+  console.error('Error:', error);
+});
+
+
+
+//13.加拿大鹅妈妈无外部匹配房源的客户
+v16.then(averageUnmatchedCount => {
+  col16 = averageUnmatchedCount;
+  console.log('col16',col16);
+}).catch(error => {
+  console.error('Error:', error);
+});
+
+
 
 
 

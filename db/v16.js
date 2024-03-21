@@ -1,4 +1,4 @@
-//加拿大鹅妈妈无外部匹配房源的客户
+//加拿大鹅妈妈外部覆盖率
 
 const pool = require('../database');
 const { getYesterday } = require('./yesterday');
@@ -64,7 +64,10 @@ function countUnmatchedUserIds(userIds) {
 
 module.exports = getUnmatchedCustomerCount()
     .then(userIds => {
-        return countUnmatchedUserIds(userIds);
+        return countUnmatchedUserIds(userIds)
+            .then(unmatchedCount => {
+              return parseFloat((unmatchedCount / userIds.length).toFixed(4))
+            });
     })
     .catch(error => {
         console.error('Error:', error);

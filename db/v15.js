@@ -1,4 +1,4 @@
-//加拿大鹅妈妈无外部匹配房源的客户
+//黄金猎犬，大黄外部覆盖率
 
 const pool = require('../database');
 const { getYesterday } = require('./yesterday');
@@ -11,7 +11,7 @@ function getUnmatchedCustomerCount() {
             SELECT UserId
             FROM \`customers\`
             WHERE CAST(datatime AS DATE) = '${yesterday}'
-            AND Assistant_name = '加拿大鹅妈妈'`;
+            AND Assistant_name = '黄金猎犬，大黄'`;
 
         pool.query(checkQuery, (error, results) => {
             if (error) {
@@ -64,7 +64,10 @@ function countUnmatchedUserIds(userIds) {
 
 module.exports = getUnmatchedCustomerCount()
     .then(userIds => {
-        return countUnmatchedUserIds(userIds);
+        return countUnmatchedUserIds(userIds)
+            .then(unmatchedCount => {
+              return parseFloat((unmatchedCount / userIds.length).toFixed(4))
+            });
     })
     .catch(error => {
         console.error('Error:', error);
