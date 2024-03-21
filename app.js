@@ -214,7 +214,7 @@ v15.then(averageUnmatchedCount => {
 
 
 
-//13.加拿大鹅妈妈无外部匹配房源的客户
+//16.加拿大鹅妈妈无外部匹配房源的客户
 v16.then(averageUnmatchedCount => {
   col16 = averageUnmatchedCount;
   console.log('col16',col16);
