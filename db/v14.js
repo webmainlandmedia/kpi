@@ -66,7 +66,7 @@ module.exports = getUnmatchedCustomerCount()
     .then(userIds => {
         return countUnmatchedUserIds(userIds)
             .then(unmatchedCount => {
-                return parseFloat((unmatchedCount / userIds.length).toFixed(4))
+                return parseFloat((1 - unmatchedCount / userIds.length).toFixed(4))
             });
     })
     .catch(error => {

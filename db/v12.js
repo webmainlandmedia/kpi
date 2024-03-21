@@ -59,7 +59,7 @@ function getCatAssistantCustomerIds() {
 
 module.exports = Promise.all([getUnmatchedCustomerCount(), getCatAssistantCustomerIds()])
     .then(([unmatchedCount, userIds]) => {
-        const averageUnmatchedCountPerUser = unmatchedCount / userIds.length;
+        const averageUnmatchedCountPerUser = 1 - unmatchedCount / userIds.length;
         return parseFloat(averageUnmatchedCountPerUser.toFixed(4)); // Retain 4 decimal places
     })
     .catch(error => {
