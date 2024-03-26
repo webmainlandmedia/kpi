@@ -10,8 +10,8 @@ function getUnassist() {
     return new Promise((resolve, reject) => {
         const checkQuery = `
             SELECT COUNT(*) AS unmatchedCount
-            FROM \`customers\`
-            WHERE Assistant_name IS NULL
+            FROM \`UserForm\`
+            WHERE (Assistant_name IS NULL OR Assistant_name = '我不确定')
             AND CAST(Submission_Date AS DATE) = '${yesterday}'`;
 
         pool.query(checkQuery, (error, results) => {

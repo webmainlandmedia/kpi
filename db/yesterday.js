@@ -8,6 +8,7 @@ function getYesterday() {
   var day = yesterday.getDate().toString().padStart(2, '0'); // Adding padding if day is single digit
 
   return year + "-" + month + "-" + day;
+  // return '2024-03-22';
 }
 
 // Example usage
